@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/demo?rewriteBatchedStatements=true
+    username: root
+    password: strongpassword
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  batch:
+    initialize-schema: always # 자동적으로 수행
+    job:
+      names: ${job.name:createArticleJob}
+      enabled: true # 웹 디펜던시를 추가하거나 스케쥴링을 추가했을 경우 는 enabled false
+    table-prefix:
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    show-sql: true
+
+logging:
+  level:
+    root: info
