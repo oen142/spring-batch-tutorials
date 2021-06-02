@@ -9,7 +9,8 @@ spring:
     job:
       names: ${job.name:createArticleJob}
       enabled: true # 웹 디펜던시를 추가하거나 스케쥴링을 추가했을 경우 는 enabled false
-    table-prefix:
+    schema: schema-mysql.sql
+    table-prefix: batch.BATCH_
   jpa:
     generate-ddl: true
     hibernate:
